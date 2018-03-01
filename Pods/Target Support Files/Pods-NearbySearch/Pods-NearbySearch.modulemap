@@ -1,0 +1,6 @@
+framework module Pods_NearbySearch {
+  umbrella header "Pods-NearbySearch-umbrella.h"
+
+  export *
+  module * { export * }
+}

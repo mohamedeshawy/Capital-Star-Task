@@ -1,24 +1,172 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AqK-u5-rwe">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Futura.ttc">
+            <string>Futura-Bold</string>
+            <string>Futura-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Resturants-->
+        <scene sceneID="sWZ-Rj-eUF">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <tableViewController id="RH6-sM-GbY" customClass="TableViewController" customModule="NearbySearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" pagingEnabled="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="faU-5f-goE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="myCell" textLabel="kq3-Em-SJQ" rowHeight="100" style="IBUITableViewCellStyleDefault" id="hzw-rC-hq3">
+                                <rect key="frame" x="0.0" y="28" width="320" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hzw-rC-hq3" id="aNv-O9-cgd">
+                                    <rect key="frame" x="0.0" y="0.0" width="272" height="99.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kq3-Em-SJQ">
+                                            <rect key="frame" x="16" y="0.0" width="256" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="RH6-sM-GbY" id="hhC-pp-tP2"/>
+                            <outlet property="delegate" destination="RH6-sM-GbY" id="cyH-i9-vMv"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Resturants" id="10Y-ZM-bZP">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="YRG-lS-7CZ">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="refresh:" destination="RH6-sM-GbY" id="gB8-mh-wnR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="Um1-6l-6Es" kind="show" identifier="getDetails" id="Un1-nV-JZE"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="myq-Ky-lOA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="384.80000000000001" y="55.322338830584712"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="nF6-AF-6dh">
+            <objects>
+                <viewController id="Um1-6l-6Es" customClass="ViewController" customModule="NearbySearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Gx-D0-6Cu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cKG-bb-DuR">
+                                <rect key="frame" x="60" y="82" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="ARb-NS-bVi"/>
+                                    <constraint firstAttribute="height" constant="200" id="bFk-Ic-z8W"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTc-Yg-5sy">
+                                <rect key="frame" x="135" y="303" width="51" height="25"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tiw-YM-eCv" customClass="HCSStarRatingView">
+                                <rect key="frame" x="74" y="390" width="172" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="172" id="Hjt-UZ-5Og"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="starBorderColor">
+                                        <color key="value" red="0.042598030250000002" green="0.4438556434" blue="0.4724381345" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowsHalfStars" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="accurateHalfStars" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="continuous" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNt-zz-9Rm">
+                                <rect key="frame" x="138" y="336" width="45" height="24"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
+                                <color key="textColor" red="0.042598030250000002" green="0.4438556434" blue="0.4724381345" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1780813769" green="0.1780813769" blue="0.1780813769" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="fNt-zz-9Rm" firstAttribute="top" secondItem="gTc-Yg-5sy" secondAttribute="bottom" constant="8" id="6jc-OE-p3S"/>
+                            <constraint firstItem="gTc-Yg-5sy" firstAttribute="top" secondItem="cKG-bb-DuR" secondAttribute="bottom" constant="21" id="BNP-s1-gwj"/>
+                            <constraint firstItem="tiw-YM-eCv" firstAttribute="centerX" secondItem="5Gx-D0-6Cu" secondAttribute="centerX" id="CnN-Rl-rT0"/>
+                            <constraint firstItem="tiw-YM-eCv" firstAttribute="top" secondItem="fNt-zz-9Rm" secondAttribute="bottom" constant="30" id="DTm-md-SWB"/>
+                            <constraint firstItem="fNt-zz-9Rm" firstAttribute="centerX" secondItem="5Gx-D0-6Cu" secondAttribute="centerX" id="E8r-OQ-qaC"/>
+                            <constraint firstItem="cKG-bb-DuR" firstAttribute="top" secondItem="ZLf-wU-48K" secondAttribute="top" constant="18" id="L6q-Xj-mub"/>
+                            <constraint firstItem="gTc-Yg-5sy" firstAttribute="centerX" secondItem="5Gx-D0-6Cu" secondAttribute="centerX" id="dZ3-Bc-awy"/>
+                            <constraint firstItem="cKG-bb-DuR" firstAttribute="centerX" secondItem="5Gx-D0-6Cu" secondAttribute="centerX" id="jPP-Rp-D8E"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ZLf-wU-48K"/>
+                    </view>
+                    <connections>
+                        <outlet property="distanceLabel" destination="fNt-zz-9Rm" id="Rsl-Mo-mQr"/>
+                        <outlet property="imageView" destination="cKG-bb-DuR" id="1EZ-Mp-AqI"/>
+                        <outlet property="nameLabel" destination="gTc-Yg-5sy" id="1gT-pU-gmm"/>
+                        <outlet property="ratingView" destination="tiw-YM-eCv" id="tcd-Gp-6G7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nmX-Nj-Nji" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1248.75" y="54.929577464788736"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Z7s-ND-191">
+            <objects>
+                <navigationController id="AqK-u5-rwe" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Wng-xJ-ZXF">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.042598030250000002" green="0.4438556434" blue="0.4724381345" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="RH6-sM-GbY" kind="relationship" relationship="rootViewController" id="bUD-82-6zr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z3A-AS-vRR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-567" y="56"/>
         </scene>
     </scenes>
 </document>
